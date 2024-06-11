@@ -10,16 +10,16 @@ const PoppinsFont = Poppins({ subsets: ["latin"], weight: "800" });
 //TODO  make it responsive
 function HeroSection() {
   return (
-    <div className="w-full mt-20 flex flex-wrap flex-col  md:flex-row  px-20">
-      <div className="md:w-2/3 flex  px-10 gap-4 flex-col  text-start justify-center">
+    <div className="w-full mt-20 flex flex-wrap flex-col  md:flex-row  xl:px-20 px-5 ml-5 overflow-hidden">
+      <div className="md:w-1/2  w-full flex  px-10 gap-4 flex-col  text-start justify-center">
         <div className={PoppinsFont.className}>
-          <h1 className="md:text-6xl  text-4xl px-5     ">
+          <h1 className="xl:text-6xl md:text-5xl  text-4xl px-5     ">
             Experience a Freshway to{" "}
             <span className="text-green-500">Manage Money</span>
           </h1>
         </div>
         <div>
-          <p className="mt-10 w-2/3 px-5 pb-5 text-gray-500 font-medium">
+          <p className="mt-10  breack-all  px-5 pb-5 text-gray-500 font-medium">
             Take control of your finances with our intuitive platform. Get
             personalized insights tailored to your spending habits, create
             custom budgets that work for you, track your expenses effortlessly,
@@ -34,13 +34,13 @@ function HeroSection() {
           </button>
         </div>
       </div>
-      <div className="md:w-1/3  flex items-center justify-center bg-cover">
-        <Image
+      <div className="md:w-1/2  flex items-center justify-center bg-cover">
+        { <Image
           src={HeroImage}
           width={500}
           alt="hero-section-img"
           className="mt-5 rounded-[40px]"
-        />
+        /> }
       </div>
     </div>
   );
