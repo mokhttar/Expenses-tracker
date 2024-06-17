@@ -35,16 +35,12 @@ function AboutUs() {
   ];
 
   return (
-    <div className="flex flex-col  bg-green-600">
-      <div className=" ">
-        <h1
-          className={`${PopinsFont.className}  text-2xl text-center text-white font-bold tracking-wider mt-5  break-words`}
-        >
+    <div className="flex flex-col  bg-green-600 py-10" >
+      <div className={`${PopinsFont.className} text-4xl`}>
+        <h1 className={`  text-center text-white   mt-5  break-words`}>
           PennyPilot is Loaded With
         </h1>
-        <p
-          className={`${PopinsFont.className}  text-2xl text-center text-white font-bold tracking-wider  break-words`}
-        >
+        <p className={`   text-center text-white font-bold   break-words`}>
           {" "}
           Free Features
         </p>
