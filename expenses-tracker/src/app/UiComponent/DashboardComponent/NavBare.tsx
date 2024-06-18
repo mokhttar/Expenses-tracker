@@ -10,7 +10,7 @@ import Image from "next/image";
 
 function NavBare() {
   return (
-    <div className="h-screen flex  w-fit px-10  shadow-lg  flex-col   ">
+    <div className="h-screen flex    px-10  shadow-lg  flex-col   ">
       {/* Title */}
       <div className="flex items-center   text-center px-5 py-10">
         <h1 className="text-xl text-center font-semibold text-green-500">
@@ -19,23 +19,23 @@ function NavBare() {
       </div>
       {/* List options  */}
       <div className="flex flex-col  gap-10   mt-10  px-1 justify-center">
-        <div className="flex items-center  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-lg hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    gap-3 ">
+        <div className="flex items-center  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    gap-3 ">
           <Image src={DashboardIcon} alt="dashboard-icon" width={22} />
           <p className="hover:animate-pulse">Dashboard</p>
         </div>
-        <div className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-lg hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  gap-2">
+        <div className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  gap-2">
           <Image src={tracnsactionsIcon} alt="transactions-icon" width={22} />
           <p>Transactions</p>
         </div>
-        <div className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-lg hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
+        <div className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
           <Image src={AiHelperIcon} alt="aiHelper-icon" width={22} />
           <p>Ai Helper</p>
         </div>
-        <div className="flex    hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-lg hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
+        <div className="flex    hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
           <Image src={BankAccountsIcon} alt="aiHelper-icon" width={24} />
           <p>Bank Accounts</p>
         </div>
-        <div className="flex  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-lg hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    items-center  gap-2">
+        <div className="flex  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    items-center  gap-2">
           <Image
             src={NotificationIcon}
             alt="aiHelper-icon"

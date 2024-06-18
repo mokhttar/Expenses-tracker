@@ -6,7 +6,7 @@ enum Categorie {
   MONTHLY,
   YEARLY,
 }
-enum Rank {
+ export enum Rank {
   Normal,
   Premium,
 }
