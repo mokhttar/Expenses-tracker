@@ -8,14 +8,16 @@ import Image from "next/image";
 function SearchBare() {
   const [SearchValue, setSearchValue] = useState(null);
 
-  const handleChange = (event: FormEvent<HTMLInputElement>) => {
+  const handleChange = (event: any) => {
+    //the typej is formt event but idk why it not wokring i will just use any
     event.preventDefault();
     setSearchValue(event.target.value);
-    console.log(SearchValue)
+    console.log(SearchValue);
   };
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    // TODO verefy the value   before sending it to the back end
   };
 
   return (
@@ -34,7 +36,7 @@ function SearchBare() {
             src={SearchIcon}
             alt="search-icon"
             width={18}
-            className="absolute top-2 left-2   "
+            className="absolute top-2 left-2 "
           />
         </div>
       </form>

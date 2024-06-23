@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { useRef } from "react";
 import DashboardIcon from "/public/assets/Dashboardicon.svg";
 import tracnsactionsIcon from "/public/assets/transactions.svg";
 import AiHelperIcon from "/public/assets/Analytics.svg";
@@ -7,8 +8,14 @@ import BankAccountsIcon from "/public/assets/Bank.svg";
 import SettingIcon from "/public/assets/Settings.svg";
 import LogoutIcon from "/public/assets/Logout.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function NavBare() {
+  const router = useRouter();
+  const handleRoutes = (path: string): any => {
+    router.push(path);
+  };
+
   return (
     <div className="h-screen flex    px-10  shadow-lg  flex-col   ">
       {/* Title */}
@@ -17,8 +24,11 @@ function NavBare() {
           PennyPilot
         </h1>
       </div>
-      {/* List options  */}
-      <div className="flex flex-col  gap-10   mt-10  px-1 justify-center">
+     
+      <div
+        className="flex flex-col  gap-10     cursor-pointer  mt-10  px-1 justify-center "
+        onClick={() => handleRoutes("/")}
+      >
         <div className="flex items-center  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    gap-3 ">
           <Image src={DashboardIcon} alt="dashboard-icon" width={22} />
           <p className="hover:animate-pulse">Dashboard</p>

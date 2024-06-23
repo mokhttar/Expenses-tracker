@@ -5,6 +5,9 @@ export interface User {
   surname: string;
   age: number;
   Rank: Rank;
+  avatar: string;
+  Date: string;
+  amount: number;
 }
 export const Users: User[] = [
   {
@@ -13,6 +16,9 @@ export const Users: User[] = [
     surname: "mokhttar",
     age: 21,
     Rank: Rank.Premium,
+    avatar: "",
+    Date: "21-01-2024",
+    amount: 40,
   },
   {
     id: 4,
@@ -20,6 +26,9 @@ export const Users: User[] = [
     surname: "younes",
     age: 18,
     Rank: Rank.Normal,
+    avatar: "",
+    Date: "21-01-2022",
+    amount: 100,
   },
   {
     id: 3,
@@ -27,6 +36,9 @@ export const Users: User[] = [
     surname: "younes",
     age: 18,
     Rank: Rank.Normal,
+    avatar: "",
+    Date: "11-02-2022",
+    amount: 420,
   },
   {
     id: 5,
@@ -34,5 +46,8 @@ export const Users: User[] = [
     surname: "younes",
     age: 18,
     Rank: Rank.Normal,
+    avatar: "",
+    Date: "21-05-2024",
+    amount: 10,
   },
 ];

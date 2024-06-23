@@ -5,14 +5,19 @@ import BalenceInfo from "./BalenceInfo";
 import LatestTransaction from "./LatestTransaction";
 import NavBare from "./NavBare";
 import UserLatest from "./UserLatest";
+
+//TODO  use the name and the username fo the login persone
+//TODO send the value  of the serch bare to the back
+
 function Main() {
   return (
-    <div  className="flex">
+    <div className="flex">
       <div className="  px-10">
         {/* back status Section */}
         <div className="flex  justify-between  mt-10   ">
           <div>
             <h1 className="font-semibold text-2xl py-2">
+              {/* only test  */}
               Hello {Users[0].name + " " + Users[0].surname + " " + "!!"}
             </h1>
             <p className="text-gray-400">Welcome Back !</p>

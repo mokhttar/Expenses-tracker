@@ -11,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+// TODO change it wo work in monthes and the  uv and pv   values make them come from  the Total expenses and total income component  (create CONTEX or  pass them using props )
 const data = [
   {
     name: "Test A",
@@ -69,7 +69,7 @@ const data = [
   },
 ];
 
-function Example() {
+function Chart() {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
@@ -81,7 +81,6 @@ function Example() {
           bottom: 5,
         }}
       >
-      
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -94,4 +93,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default Chart;
