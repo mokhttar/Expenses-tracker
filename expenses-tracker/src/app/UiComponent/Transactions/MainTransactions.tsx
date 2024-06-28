@@ -32,7 +32,9 @@ function MainTransactions() {
         </div>
       </div>
 
-      {isClicked && <AddTransactions isClicked={isClicked}  setIsClicked={setIsClicked}/>}
+      {isClicked && (
+        <AddTransactions isClicked={isClicked} setIsClicked={setIsClicked} />
+      )}
     </div>
   );
 }

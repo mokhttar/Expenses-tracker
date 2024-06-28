@@ -4,8 +4,8 @@ import CancelIcon from "/public/assets/Cancel.svg";
 import Image from "next/image";
 import { FormEvent } from "react";
 import { useState } from "react";
-import { useRef } from "react";
 import Expenses from "./Expenses";
+import Income from "./Income";
 
 interface AddTransactionsProps {
   isClicked: boolean;
@@ -17,21 +17,44 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
     event.preventDefault();
     setIsClicked(!isClicked);
   }
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: FormEvent<HTMLButtonElement>) {
     event.preventDefault();
   }
   if (!isClicked) {
     return null;
   }
-  const componentref = useRef(null);
-  const [ComponentType, setComponentType] = useState("");
+  const [ComponentType, setComponentType] = useState<string>("");
+  function handleComponent(ComponentType: string, event?: FormEvent) {
+    event?.preventDefault();
+    setComponentType((preValue) => ComponentType);
+  }
 
-  function handleRef(event: FormEvent) {
+  //Only for testing
+  //TODO create a  form object  to store all the  information
+  const [Amount, setAmount] = useState<number>(0);
+  const [Description, setDesciption] = useState<string>("");
+  const [Categorie, setCategorie] = useState<string>("");
+  const [Date, setDate] = useState<string>("");
+
+  async function SendData(event: FormEvent) {
     event.preventDefault();
-    if (componentref.current != null) {
-      setComponentType((_preValue) => componentref.current.innerText);
+    const response = await fetch(
+      "http://localhost:3001/transactions/newTransaction",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({ Amount, Description, Categorie, Date }),
+      }
+    );
+    if (!response.ok) {
+      console.log("Error in the response");
     }
-    console.log(ComponentType);
+    setAmount(0);
+    setDesciption("");
+    setCategorie("");
+    setDate("");
   }
 
   return (
@@ -51,20 +74,47 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
         <div className="flex gap-20 items-center justify-center mt-5 border rounded-full py-4">
           <h3
             className="text-gray-500 font-semibold hover:bg-green-500 hover:text-white hover:py-1 hover:rounded-full hover:px-4 cursor-pointer"
-            ref={componentref}
-            onClick={handleRef}
+            onClick={() => handleComponent("Expenses")}
           >
             Expenses
           </h3>
-          <h3 className="text-gray-500 font-semibold hover:bg-green-500 hover:text-white hover:py-1 hover:rounded-full hover:px-4 cursor-pointer">
+          <h3
+            className="text-gray-500 font-semibold hover:bg-green-500 hover:text-white hover:py-1 hover:rounded-full hover:px-4 cursor-pointer"
+            onClick={() => handleComponent("Income")}
+          >
             Income
           </h3>
           <h3 className="text-gray-500 font-semibold hover:bg-green-500 hover:text-white hover:py-1 hover:rounded-full hover:px-4 cursor-pointer">
             Transfer
           </h3>
         </div>
-        <form onSubmit={handleSubmit} className="mt-5">
-          {ComponentType === "Expenses" && <Expenses />}
+        <form className="mt-5">
+          {ComponentType === "Expenses" && (
+            <Expenses
+              Amount={Amount}
+              setAmount={setAmount}
+              Description={Description}
+              setDescription={setDesciption}
+              Categorie={Categorie}
+              setCategorie={setCategorie}
+              Date={Date}
+              setDate={setDate}
+              SendData={SendData}
+            />
+          )}
+          {ComponentType === "Income" && (
+            <Income
+              Amount={Amount}
+              setAmount={setAmount}
+              Description={Description}
+              setDescription={setDesciption}
+              Categorie={Categorie}
+              setCategorie={setCategorie}
+              Date={Date}
+              setDate={setDate}
+              SendData={SendData}
+            />
+          )}
         </form>
       </div>
     </div>
