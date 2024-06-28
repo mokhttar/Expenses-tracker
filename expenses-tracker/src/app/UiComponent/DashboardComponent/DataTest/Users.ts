@@ -1,4 +1,7 @@
 import { Rank } from "../../LandingPageComponent/PaymentPlan";
+
+
+
 export interface User {
   id: number;
   name: string;
@@ -9,6 +12,7 @@ export interface User {
   Date: string;
   amount: number;
 }
+
 export const Users: User[] = [
   {
     id: 1,
