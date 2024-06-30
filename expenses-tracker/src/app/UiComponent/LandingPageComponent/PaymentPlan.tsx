@@ -6,7 +6,7 @@ enum Categorie {
   MONTHLY,
   YEARLY,
 }
- export enum Rank {
+export enum Rank {
   Normal,
   Premium,
 }
@@ -15,7 +15,7 @@ export interface Offer {
   id: number;
   title: string;
   description: string;
-  discountAmount: number ;
+  discountAmount: number;
   originalPrice: number;
   categorie: Categorie;
   rank: Rank;
@@ -44,7 +44,7 @@ const monthlyOffers: Offer[] = [
 
 const yearlyOffers: Offer[] = [
   {
-    id: 3, 
+    id: 3,
     title: "Simple Start",
     description: "Best For small individuals",
     originalPrice: 220,
@@ -53,7 +53,7 @@ const yearlyOffers: Offer[] = [
     rank: Rank.Normal,
   },
   {
-    id: 4, 
+    id: 4,
     title: "Essentials",
     description: "Best For Group Members",
     originalPrice: 600,
@@ -64,7 +64,7 @@ const yearlyOffers: Offer[] = [
 ];
 
 function PaymentPlan() {
-  const [toggleValue, setToggleValue] = useState(true);
+  const [toggleValue, setToggleValue] = useState<boolean>(true);
 
   const handleToggle = (event: FormEvent<HTMLInputElement>) => {
     setToggleValue(!toggleValue);

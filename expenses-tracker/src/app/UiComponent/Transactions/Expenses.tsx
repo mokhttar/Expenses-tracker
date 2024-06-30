@@ -11,6 +11,7 @@ export interface PropsInterface {
   Date: string;
   setDate: (value: string) => void;
   SendData: any;
+  AddOptions: (value: FormEvent) => void;
 }
 
 function Expenses({
@@ -23,6 +24,7 @@ function Expenses({
   Date,
   setDate,
   SendData,
+  AddOptions,
 }: PropsInterface) {
   function handleChangeAmount(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(parseInt(event.target.value));
@@ -30,7 +32,7 @@ function Expenses({
   function handleDescription(event: React.ChangeEvent<HTMLInputElement>) {
     setDescription(event.target.value);
   }
-  function handleCategorie(event: React.ChangeEvent<HTMLSelectElement>) {
+  function handleCategorie(event: any) {
     setCategorie(event.target.value);
   }
   function handleDate(event: React.ChangeEvent<HTMLInputElement>) {
@@ -87,11 +89,12 @@ function Expenses({
             <select
               name="categorie"
               className="w-full py-2 px-2 rounded-md mt-2"
-              onChange={handleCategorie}
+              onSelect={handleCategorie}
+              // onChange={handleCategorie}
             >
-              <option value="Choose your Option" defaultValue={"Options"}>
-                Options
-              </option>
+              <option value="Food">Food</option>
+              <option value="Home">Home</option>
+              <option value="Employee">Employee</option>
             </select>
           </div>
 
@@ -104,6 +107,7 @@ function Expenses({
               type="date"
               name="Date"
               id=""
+              // form="dd-mm/yyyy"
               className="w-full border py-2 px-2 rounded-md"
               onChange={handleDate}
             />

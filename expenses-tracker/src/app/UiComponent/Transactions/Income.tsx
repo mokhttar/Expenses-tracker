@@ -13,6 +13,7 @@ export interface PropsInterface {
   Date: string;
   setDate: (value: string) => void;
   SendData: any;
+  AddOptions: (value: FormEvent) => void;
 }
 function Income({
   Amount,
@@ -24,6 +25,7 @@ function Income({
   Date,
   setDate,
   SendData,
+  AddOptions,
 }: PropsInterface) {
   function handleChangeAmount(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(parseInt(event.target.value));
@@ -110,7 +112,10 @@ function Income({
             />
           </div>
           <div>
-            <button className="w-full border bg-green-500 text-white font-semibold py-2 text-center rounded-full mt-5" onClick={SendData}>
+            <button
+              className="w-full border bg-green-500 text-white font-semibold py-2 text-center rounded-full mt-5"
+              onClick={SendData}
+            >
               Save
             </button>
           </div>

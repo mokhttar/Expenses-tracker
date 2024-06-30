@@ -35,7 +35,7 @@ function AboutUs() {
   ];
 
   return (
-    <div className="flex flex-col  bg-green-600 py-10" >
+    <div className="flex flex-col  bg-green-600 py-10">
       <div className={`${PopinsFont.className} text-4xl`}>
         <h1 className={`  text-center text-white   mt-5  break-words`}>
           PennyPilot is Loaded With

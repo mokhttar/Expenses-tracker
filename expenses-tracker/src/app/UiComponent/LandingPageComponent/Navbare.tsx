@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 function Navbare() {
   return (
-    <div  className="">
+    <div className="">
       <div className="w-full flex justify-between  mt-5  px-20   ">
         <div className="text-green-500 ">
           <p className="font-semibold text-lg">PennyPilot</p>

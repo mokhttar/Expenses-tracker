@@ -12,6 +12,11 @@ interface AddTransactionsProps {
   setIsClicked: (value: boolean) => void;
 }
 
+// const [Options, setOptions] = useState<string[]>([]);
+function AddOptions(event: FormEvent) {
+  event.preventDefault();
+}
+
 function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
   function handleCloseForm(event: FormEvent) {
     event.preventDefault();
@@ -35,9 +40,14 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
   const [Description, setDesciption] = useState<string>("");
   const [Categorie, setCategorie] = useState<string>("");
   const [Date, setDate] = useState<string>("");
+  //TODO validate Data
+  function ValidationDat() {
+    //validation amount
+  }
 
   async function SendData(event: FormEvent) {
     event.preventDefault();
+
     const response = await fetch(
       "http://localhost:3001/transactions/newTransaction",
       {
@@ -51,6 +61,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
     if (!response.ok) {
       console.log("Error in the response");
     }
+    window.location.reload();
     setAmount(0);
     setDesciption("");
     setCategorie("");
@@ -58,7 +69,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
   }
 
   return (
-    <div className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-50 flex justify-center items-center px-4">
+    <div className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-50 flex justify-center items-center px-4 z-10">
       <div className="relative w-full max-w-lg bg-white border rounded-md p-4">
         <div className="flex items-center justify-between">
           <p className="font-semibold text-green-500">Add Transactions</p>
@@ -100,6 +111,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               Date={Date}
               setDate={setDate}
               SendData={SendData}
+              AddOptions={AddOptions}
             />
           )}
           {ComponentType === "Income" && (
@@ -113,6 +125,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               Date={Date}
               setDate={setDate}
               SendData={SendData}
+              AddOptions={AddOptions}
             />
           )}
         </form>

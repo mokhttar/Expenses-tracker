@@ -7,6 +7,7 @@ interface CardUiInterface {
 }
 //TODO change the discount numbers
 //TODO add  animations
+//TODO remove the offers from the front end and make the admin can add them to the backend
 
 const PoppinsFont = Poppins({ subsets: ["latin"], weight: "900" });
 

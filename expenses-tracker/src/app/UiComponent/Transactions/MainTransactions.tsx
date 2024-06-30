@@ -1,6 +1,9 @@
 import React, { useState, FormEvent } from "react";
 import { Users } from "../DashboardComponent/DataTest/Users";
 import AddTransactions from "./AddTransactions";
+import History from "./History";
+import SearchTransactions from "./SearchTransactions";
+import SearchBare from "./SearchBare";
 
 function MainTransactions() {
   const [isClicked, setIsClicked] = useState(false);
@@ -35,6 +38,17 @@ function MainTransactions() {
       {isClicked && (
         <AddTransactions isClicked={isClicked} setIsClicked={setIsClicked} />
       )}
+
+      <div>
+        <div className="flex justify-between mt-5 z-0">
+          <SearchBare />
+          <button className="border py-1 px-5 text-semibold rounded-md">
+            Add Categorie
+          </button>
+        </div>
+
+        <History />
+      </div>
     </div>
   );
 }

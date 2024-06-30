@@ -1,6 +1,6 @@
 import React from "react";
 import { Users } from "./DataTest/Users";
-import SearchBare from "./SearchBare";
+import SearchBare from "../Transactions/SearchBare";
 import BalenceInfo from "./BalenceInfo";
 import LatestTransaction from "./LatestTransaction";
 import NavBare from "./NavBare";
