@@ -91,7 +91,7 @@ const History: React.FC = () => {
           </h2>
           {group.map((transaction) => (
             <div key={transaction.id} className="flex justify-between">
-              <div className="border flex justify-between rounded-xl p-2 mb-2 w-full items-center py-4">
+              <div className="border     flex justify-between rounded-xl p-2 mb-2 w-full items-center py-4">
                 <div>
                   <div className="flex gap-5 ">
                     <div>

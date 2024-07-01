@@ -2,11 +2,14 @@ import React, { useState, FormEvent } from "react";
 import { Users } from "../DashboardComponent/DataTest/Users";
 import AddTransactions from "./AddTransactions";
 import History from "./History";
-import SearchTransactions from "./SearchTransactions";
 import SearchBare from "./SearchBare";
+import newCategorie from "./newCategorie";
+import NewCategorie from "./newCategorie";
+// import { useToast } from "@/components/use-toast";
 
 function MainTransactions() {
   const [isClicked, setIsClicked] = useState(false);
+  const [ShowNewCat, setShowNewCat] = useState<boolean>(false);
 
   function handleAddTransaction(event: FormEvent) {
     event.preventDefault();
@@ -14,8 +17,14 @@ function MainTransactions() {
     console.log("Add Transaction Event", isClicked);
   }
 
+  const handleClick = () => {
+    setShowNewCat((preValue: any) => !preValue);
+    console.log("i was clicked");
+    console.log(ShowNewCat);
+  };
+
   return (
-    <div className="px-10 flex flex-col gap-4 ">
+    <div className="px-10 ml-[20%] flex flex-col gap-4 ">
       <div>
         <h1 className="text-xl py-10 font-semibold">
           Welcome back {Users[0].surname + " " + Users[0].name}
@@ -42,9 +51,19 @@ function MainTransactions() {
       <div>
         <div className="flex justify-between mt-5 z-0">
           <SearchBare />
-          <button className="border py-1 px-5 text-semibold rounded-md">
+          <button
+            className=" py-2 bg-amber-100 px-5 text-semibold  rounded-2xl"
+            onClick={handleClick}
+          >
             Add Categorie
           </button>
+          {ShowNewCat && (
+            <NewCategorie
+              ShowNewCat={ShowNewCat}
+              setShowNewCat={setShowNewCat}
+              handleClick={handleClick}
+            />
+          )}
         </div>
 
         <History />

@@ -1,6 +1,9 @@
 import React from "react";
 import { FormEvent } from "react";
 import { ChangeEvent } from "react";
+// import { useToast } from "@/components/use-toast";
+
+// const Toeast = useToast();
 export interface PropsInterface {
   Amount: number;
   setAmount: (value: number) => void;
@@ -89,7 +92,7 @@ function Expenses({
             <select
               name="categorie"
               className="w-full py-2 px-2 rounded-md mt-2"
-              onSelect={handleCategorie}
+              onChange={handleCategorie}
               // onChange={handleCategorie}
             >
               <option value="Food">Food</option>

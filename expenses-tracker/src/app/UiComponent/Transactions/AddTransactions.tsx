@@ -1,71 +1,94 @@
 "use client";
-import React from "react";
+import React, { useState, FormEvent } from "react";
 import CancelIcon from "/public/assets/Cancel.svg";
 import Image from "next/image";
-import { FormEvent } from "react";
-import { useState } from "react";
 import Expenses from "./Expenses";
 import Income from "./Income";
+import { CToast, CToastBody, CToastHeader } from "@coreui/react";
+import { title } from "process";
 
 interface AddTransactionsProps {
   isClicked: boolean;
   setIsClicked: (value: boolean) => void;
 }
 
-// const [Options, setOptions] = useState<string[]>([]);
 function AddOptions(event: FormEvent) {
   event.preventDefault();
 }
 
 function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
+  const [Amount, setAmount] = useState<number>(0);
+  const [Description, setDescription] = useState<string>("");
+  const [Categorie, setCategorie] = useState<string>("Food");
+  const [Date, setDate] = useState<string>("");
+  const [isValidate, setIsValidate] = useState<boolean>(false);
+  const [Errmsg, setErrmsg] = useState<string[]>([]);
+  const [ComponentType, setComponentType] = useState<string>("");
+
   function handleCloseForm(event: FormEvent) {
     event.preventDefault();
     setIsClicked(!isClicked);
   }
-  function handleSubmit(event: FormEvent<HTMLButtonElement>) {
-    event.preventDefault();
-  }
-  if (!isClicked) {
-    return null;
-  }
-  const [ComponentType, setComponentType] = useState<string>("");
+
   function handleComponent(ComponentType: string, event?: FormEvent) {
     event?.preventDefault();
-    setComponentType((preValue) => ComponentType);
+    setComponentType(ComponentType);
   }
 
-  //Only for testing
-  //TODO create a  form object  to store all the  information
-  const [Amount, setAmount] = useState<number>(0);
-  const [Description, setDesciption] = useState<string>("");
-  const [Categorie, setCategorie] = useState<string>("");
-  const [Date, setDate] = useState<string>("");
-  //TODO validate Data
   function ValidationDat() {
-    //validation amount
+    const errors: string[] = [];
+
+    if (Amount <= 0) {
+      errors.push("Amount must be a positive number.");
+    }
+
+    if (Description.trim() === "") {
+      errors.push("Description cannot be empty.");
+    }
+
+    if (Categorie.trim() === "") {
+      errors.push("Categorie must be selected.");
+    }
+
+    if (Date.trim() === "") {
+      errors.push("Date cannot be empty.");
+    }
+
+    setErrmsg(errors);
+    setIsValidate(errors.length === 0);
   }
 
   async function SendData(event: FormEvent) {
     event.preventDefault();
+    ValidationDat();
+
+    if (!isValidate) {
+      return;
+    }
 
     const response = await fetch(
       "http://localhost:3001/transactions/newTransaction",
       {
         method: "POST",
         headers: {
-          "content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ Amount, Description, Categorie, Date }),
       }
     );
+
     if (!response.ok) {
       console.log("Error in the response");
     }
     window.location.reload();
     setAmount(0);
-    setDesciption("");
+    setDescription("");
     setCategorie("");
     setDate("");
+  }
+
+  if (!isClicked) {
+    return null;
   }
 
   return (
@@ -105,7 +128,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               Amount={Amount}
               setAmount={setAmount}
               Description={Description}
-              setDescription={setDesciption}
+              setDescription={setDescription}
               Categorie={Categorie}
               setCategorie={setCategorie}
               Date={Date}
@@ -119,7 +142,7 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               Amount={Amount}
               setAmount={setAmount}
               Description={Description}
-              setDescription={setDesciption}
+              setDescription={setDescription}
               Categorie={Categorie}
               setCategorie={setCategorie}
               Date={Date}
@@ -129,6 +152,16 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
             />
           )}
         </form>
+        {/* only for test TODO fix the design later */}
+        {Errmsg.length > 0 && (
+          <div className="mt-4 text-red-500">
+            <ul>
+              {Errmsg.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -17,13 +17,13 @@ function NavBare() {
   }
 
   return (
-    <div className="h-screen flex    px-10  shadow-lg  flex-col   ">
+    <div className="h-screen fixed  flex    px-10  shadow-lg  flex-col   ">
       {/* Title */}
       <div className="flex items-center   text-center px-5 py-10">
         <h1 className="text-xl text-center font-semibold text-green-500">
           PennyPilot
         </h1>
-      </div>
+      </div> 
 
       <div className="flex flex-col  gap-10     cursor-pointer  mt-10  px-1 justify-center ">
         <div
