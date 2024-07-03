@@ -14,6 +14,8 @@ export interface PropsInterface {
   setDate: (value: string) => void;
   SendData: any;
   AddOptions: (value: FormEvent) => void;
+  setComponentType: (value: string) => void;
+  ComponentType: string;
 }
 function Income({
   Amount,
@@ -26,6 +28,8 @@ function Income({
   setDate,
   SendData,
   AddOptions,
+  setComponentType,
+  ComponentType,
 }: PropsInterface) {
   function handleChangeAmount(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(parseInt(event.target.value));

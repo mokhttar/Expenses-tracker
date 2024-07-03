@@ -4,8 +4,6 @@ import CancelIcon from "/public/assets/Cancel.svg";
 import Image from "next/image";
 import Expenses from "./Expenses";
 import Income from "./Income";
-import { CToast, CToastBody, CToastHeader } from "@coreui/react";
-import { title } from "process";
 
 interface AddTransactionsProps {
   isClicked: boolean;
@@ -73,7 +71,13 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Amount, Description, Categorie, Date }),
+        body: JSON.stringify({
+          Amount,
+          Description,
+          Categorie,
+          Date,
+          Type: ComponentType,
+        }),
       }
     );
 
@@ -135,6 +139,8 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               setDate={setDate}
               SendData={SendData}
               AddOptions={AddOptions}
+              setComponentType={setComponentType}
+              ComponentType={ComponentType}
             />
           )}
           {ComponentType === "Income" && (
@@ -149,6 +155,8 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
               setDate={setDate}
               SendData={SendData}
               AddOptions={AddOptions}
+              setComponentType={setComponentType}
+              ComponentType={ComponentType}
             />
           )}
         </form>

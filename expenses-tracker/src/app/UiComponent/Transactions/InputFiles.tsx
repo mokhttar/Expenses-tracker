@@ -1,6 +1,11 @@
 import React from "react";
 import { FileInput, Label } from "flowbite-react";
-function InputFiles() {
+
+interface InputFilesProps {
+  handleFile: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function InputFiles({ handleFile }: InputFilesProps) {
   return (
     <div className="flex w-full items-center justify-center">
       <Label
@@ -31,7 +36,11 @@ function InputFiles() {
             SVG, PNG, JPG or GIF (MAX. 800x400px)
           </p>
         </div>
-        <FileInput id="dropzone-file" className="hidden" />
+        <FileInput
+          id="dropzone-file"
+          className="hidden"
+          onChange={handleFile}
+        />
       </Label>
     </div>
   );

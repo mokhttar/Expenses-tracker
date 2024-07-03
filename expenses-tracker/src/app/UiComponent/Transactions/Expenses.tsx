@@ -15,6 +15,8 @@ export interface PropsInterface {
   setDate: (value: string) => void;
   SendData: any;
   AddOptions: (value: FormEvent) => void;
+  setComponentType: (value: string) => void;
+  ComponentType: string;
 }
 
 function Expenses({
@@ -28,6 +30,8 @@ function Expenses({
   setDate,
   SendData,
   AddOptions,
+  setComponentType,
+  ComponentType,
 }: PropsInterface) {
   function handleChangeAmount(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(parseInt(event.target.value));
