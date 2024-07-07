@@ -24,7 +24,7 @@ function MainTransactions() {
   };
 
   return (
-    <div className="px-10 ml-[20%] flex flex-col gap-4 ">
+    <div className="px-10   flex flex-col gap-4 ">
       <div>
         <h1 className="text-xl py-10 font-semibold">
           Welcome back {Users[0].surname + " " + Users[0].name}
@@ -65,7 +65,6 @@ function MainTransactions() {
             />
           )}
         </div>
-
         <History />
       </div>
     </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { FormEvent } from "react";
 import { ChangeEvent } from "react";
 // import { useToast } from "@/components/use-toast";
-
 // const Toeast = useToast();
 export interface PropsInterface {
   Amount: number;
@@ -45,7 +44,6 @@ function Expenses({
   function handleDate(event: React.ChangeEvent<HTMLInputElement>) {
     setDate(event.target.value);
   }
-
   return (
     <>
       <div>

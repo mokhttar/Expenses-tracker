@@ -41,7 +41,7 @@ function NewCategorie({
     formData.append("CategorieName", CategorieName);
     formData.append("file", file);
 
-    const response = await fetch("http://localhost:3001/newCategorie", {
+    const response = await fetch("http://localhost:3001/Categorie", {
       method: "POST",
       body: formData,
     });

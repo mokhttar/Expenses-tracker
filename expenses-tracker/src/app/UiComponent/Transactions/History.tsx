@@ -6,7 +6,7 @@ import PizzaIcon from "/public/assets/PizzaIcon.svg";
 import Image from "next/image";
 import OptionsIcon from "/public/assets/Options.svg";
 // Define types
-type Transaction = {
+export type Transaction = {
   id: number;
   Amount: number;
   Description: string;
