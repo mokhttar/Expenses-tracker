@@ -63,7 +63,6 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
     if (!isValidate) {
       return;
     }
-
     const response = await fetch(
       "http://localhost:3001/transactions/newTransaction",
       {
@@ -80,7 +79,6 @@ function AddTransactions({ isClicked, setIsClicked }: AddTransactionsProps) {
         }),
       }
     );
-
     if (!response.ok) {
       console.log("Error in the response");
     }

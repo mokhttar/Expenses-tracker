@@ -23,32 +23,32 @@ function NavBare() {
         <h1 className="text-xl text-center font-semibold text-green-500">
           PennyPilot
         </h1>
-      </div> 
+      </div>
 
       <div className="flex flex-col  gap-10     cursor-pointer  mt-10  px-1 justify-center ">
         <div
-          className="flex items-center  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    gap-3 "
+          className="flex items-center  hover:bg-green-600 hover:text-white hover:px-2 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    gap-3 "
           onClick={() => handleRoutes("/Dashboard")}
         >
           <Image src={DashboardIcon} alt="dashboard-icon" width={22} />
           <p className="hover:animate-pulse">Dashboard</p>
         </div>
         <div
-          className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  gap-2"
+          className="flex   hover:bg-green-600 hover:text-white hover:px-2 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  gap-2"
           onClick={() => handleRoutes("/transactions")}
         >
           <Image src={tracnsactionsIcon} alt="transactions-icon" width={22} />
           <p>Transactions</p>
         </div>
-        <div className="flex   hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
+        <div className="flex   hover:bg-green-600 hover:text-white hover:px-2 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
           <Image src={AiHelperIcon} alt="aiHelper-icon" width={22} />
           <p>Ai Helper</p>
         </div>
-        <div className="flex    hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
+        <div className="flex    hover:bg-green-600 hover:text-white hover:px-1 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000  items-center  gap-2">
           <Image src={BankAccountsIcon} alt="aiHelper-icon" width={24} />
           <p>Bank Accounts</p>
         </div>
-        <div className="flex  hover:bg-green-600 hover:text-white hover:px-8 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    items-center  gap-2">
+        <div className="flex  hover:bg-green-600 hover:text-white hover:px-2 hover:rounded-full hover:py-2  hover:font-semibold hover:scale-95  hover:transition-transform hover:duration-1000    items-center  gap-2">
           <Image
             src={NotificationIcon}
             alt="aiHelper-icon"

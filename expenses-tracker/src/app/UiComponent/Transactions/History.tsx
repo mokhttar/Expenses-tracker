@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FormEvent } from "react";
 import IncomeIcon from "/public/assets/Income.svg";
 import WorkersIcon from "/public/assets/WorkersIcon.svg";
 import PizzaIcon from "/public/assets/PizzaIcon.svg";
@@ -56,6 +56,10 @@ const transactions: Transaction[] = [
   // Add more transactions here...
 ];
 
+const GetAllTransactions = (event: FormEvent) => {
+  event.preventDefault();
+};
+
 // Function to group transactions by date
 function groupTransactionsByDate(transactions: Transaction[]): Transaction[][] {
   const groupedTransactions: Transaction[][] = [];
@@ -80,6 +84,7 @@ function groupTransactionsByDate(transactions: Transaction[]): Transaction[][] {
 
 // Component to display history
 const History: React.FC = () => {
+  // const []
   const groupedTransactions = groupTransactionsByDate(transactions);
 
   return (

@@ -11,7 +11,7 @@ function Transaction() {
           <NavBare />
         </section>
       </div>
-      <div className="w-full ml-[8%]">
+      <div className="w-full ml-[8%] xl:ml-[3%]">
         <MainTransactions />
       </div>
 

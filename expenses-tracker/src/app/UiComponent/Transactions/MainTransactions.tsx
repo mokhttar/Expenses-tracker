@@ -34,9 +34,9 @@ function MainTransactions() {
         <div>
           <p className="text-lg font-semibold">Transactions</p>
         </div>
-        <div>
+        <div className="rounded-md">
           <button
-            className="px-3 py-1 rounded-md bg-green-500 text-white font-semibold"
+            className="px-3 py-1   rounded bg-green-500 text-white font-semibold"
             onClick={handleAddTransaction}
           >
             Add Transaction
